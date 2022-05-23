@@ -12,6 +12,8 @@ public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8"); // post방식으로 넘어올 경우 body의 encoding방식을 무조건 지정해줘야한다.
+		
 		String name = request.getParameter("name");
 		
 		response.setContentType("text/html; charset=utf-8");

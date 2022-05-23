@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String email = request.getParameter("email");
+request.setCharacterEncoding("utf-8"); // // post방식으로 넘어올 경우 body의 encoding방식을 무조건 지정해줘야한다.
+
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+String birthYear = request.getParameter("birthYear");
+String gender = request.getParameter("gender");
+String[] hobbies = request.getParameterValues("hobby");
+String profile = request.getParameter("profile");
 %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +18,25 @@
 </head>
 <body>
 	<h1>결과</h1>
-	<%=email %>
+	<%=email%>
+	<br />
+	<%=password%>
+	<br />
+	<%=birthYear%>
+	<br />
+	<%=gender%>
+	<br />
+	<%
+	for (String hobby : hobbies) {
+	%>
+	<%=hobby%>
+	<br />
+	<%
+	}
+	%>
+	<p>
+		<%=profile%>
+	</p>
+	<a href="form.jsp">회원가입</a>
 </body>
 </html>
