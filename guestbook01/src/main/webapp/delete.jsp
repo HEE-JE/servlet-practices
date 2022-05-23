@@ -15,6 +15,6 @@ vo.setPassword(password);
 if (new GuestBookDao().delete(vo)) {
 	response.sendRedirect("/guestbook01");
 } else {
-	response.sendRedirect("deleteform.jsp?no=" + no + "&check=true");
+	response.sendRedirect("deleteform.jsp?no=" + no + "&check=false");
 }
 %>
