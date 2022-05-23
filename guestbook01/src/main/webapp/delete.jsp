@@ -8,12 +8,13 @@ request.setCharacterEncoding("utf-8"); // // post방식으로 넘어올 경우 b
 
 Long no = Long.parseLong(request.getParameter("no"));
 String password = request.getParameter("password");
-
 GuestBookVo vo = new GuestBookVo();
 vo.setNo(no);
 vo.setPassword(password);
 
-new GuestBookDao().delete(vo);
-
-response.sendRedirect("/guestbook01");
+if (new GuestBookDao().delete(vo)) {
+	response.sendRedirect("/guestbook01");
+} else {
+	response.sendRedirect("deleteform.jsp?no=" + no + "&check=true");
+}
 %>
