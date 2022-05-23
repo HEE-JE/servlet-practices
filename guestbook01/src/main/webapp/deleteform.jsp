@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 Long no = Long.parseLong(request.getParameter("no"));
+boolean check = Boolean.parseBoolean(request.getParameter("check"));
 %>
 <html>
 <head>
@@ -20,5 +21,12 @@ Long no = Long.parseLong(request.getParameter("no"));
 			</tr>
 		</table>
 	</form>
+	<%
+	if (!check) {
+	%>
+	<h6>비밀번호가 일치하지 않습니다.</h6>
+	<%
+	}
+	%>
 </body>
 </html>
